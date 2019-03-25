@@ -13,9 +13,9 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         button.setOnClickListener{
-            if (checkEmail(((editText1.text.toString()))) && editText2.text.toString() != null){
+            if (checkEmail(((editText1.text.toString()))) && editText2.text.toString() != ""){
                 Toast.makeText(this@MainActivity,"Has iniciado sesión con exito!",Toast.LENGTH_SHORT).show()
-                val intent = Intent(this,MainActivity::class.java)
+                val intent = Intent(this,SecondActivity::class.java)
                 startActivity(intent)
             }
             else{
