@@ -7,7 +7,13 @@ import android.widget.Toast
 import kotlinx.android.synthetic.main.activity_main.*
 import java.util.regex.Pattern
 
+
+
 class MainActivity : AppCompatActivity() {
+
+
+    lateinit var password: String
+    lateinit var userName: String
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -15,7 +21,11 @@ class MainActivity : AppCompatActivity() {
         button.setOnClickListener{
             if (checkEmail(((editText1.text.toString()))) && editText2.text.toString() != ""){
                 Toast.makeText(this@MainActivity,"Has iniciado sesión con exito!",Toast.LENGTH_SHORT).show()
+                userName = editText1.text.toString()
+                password = editText2.text.toString()
                 val intent = Intent(this,SecondActivity::class.java)
+                intent.putExtra("Username",userName)
+                intent.putExtra("Password",password)
                 startActivity(intent)
             }
             else{
